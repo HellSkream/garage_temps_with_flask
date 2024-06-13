@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Garage Project - {% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+</head>
+<body>
+    <header>
+        {% include("_gp_header.html") %}
+    </header>
+    <section>
+        <main>
+            {% block content %}{% endblock content %}
+        </main>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,5 @@
+*** to run the app on server
+python -m flask --app garage_project run --port 8000 --debug
+
+*** to initialise db
+python -m flask --app garage_project init-db 

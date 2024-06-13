@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h2>{% block title %}Home{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+    <p>
+        Welcome to the LM34 Home Page<br>
+        
+        Refer to the <a href="{{url_for('garage_proj.about' )}}">About</a> page for more info.
+    </p>
+
+{% endblock content %}

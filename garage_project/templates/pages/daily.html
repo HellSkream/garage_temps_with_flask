@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h2>{% block title %}Daily{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+    <p>
+        This is the Daily page placeholder.
+    </p>
+    <p>
+        Return to the <a href="{{url_for('garage_proj.home')}}">Home page</a>.
+    </p>
+
+{% endblock content %}
