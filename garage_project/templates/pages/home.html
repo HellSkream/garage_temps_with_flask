@@ -7,8 +7,24 @@
 {% block content %}
     <p>
         Welcome to the LM34 Home Page<br>
-        
-        Refer to the <a href="{{url_for('garage_proj.about' )}}">About</a> page for more info.
+        <section>
+            <!-- Start content edits below this line. -->
+            <h2>Why</h2>
+            <p>Will insulating the door help minimise the radiant heat coming through the steel garage door?<br>Hence a classic opportunity
+            to use a Raspberry Pi to collect data and syntesis this with an extenral source<br>as a starter project in the IoT world and publishing the results to a webpage</p>
+        </section>
+
+        <section>
+        <h2>How</h2>
+        <ul class="how_items">
+            <li>Data colected in the garage on a Raspberry Pi Zero 2 with external temperature sensor</li>
+            <li>Using a cronjob every 10 minutes to capture room temp, CPU temp and time as well as scrape the local Perth weather off the web</li>
+            <li>Currently that data is then captured manually when I remember to run a script on the PC to download the data to date</li>
+            <li>Phase II - will involve linking the charts to a web-hosted DB, so the user can change the from/to dates</li>
+            <li>Phase III - will involve updating the said DB with automatic data transfer from the RPI to the remote DB.  Need to investigate MQTT ??</li>
+        </ul>
+        </section>
+            
     </p>
 
 {% endblock content %}
