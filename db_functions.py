@@ -50,12 +50,47 @@ def update_records(database, file):
     data.to_sql('garage_temps', conn, if_exists='append', index=False)
     conn.close()
 
+def update_weath_codes(database, weath_dict):
+    conn = create_connection(database)
+    # cur = conn.cursor
+    query = "INSERT INTO weath_desc (weath_desc, weath_code) VALUES (?,?)"
+    for desc, code in weath_dict.items():
+        conn.execute(query, [desc, code])
+    conn.commit()
+    conn.close()
 
 if __name__=='__main__':
     database = 'garage_temps.sqlite'
-    infile = r'Garage_Project_Data_Export_20240606.csv'
+    infile = r'Garage_Project_Data_Export_20240618.csv'
     numb_days = 6
+    
+    Weath_codes = {'None':'None',
+               'light intensity shower rain': 'Rain',
+               'light rain': 'Rain',
+               'overcast clouds':'Cloudy',
+               'clear sky':'Clear',
+               'few clouds':'Clear',
+               'scattered clouds':'Clear',
+               'broken clouds':'Clear',
+               'drizzle': 'Rain',
+               'mist':'Cloudy',
+               'fog':'Cloudy',
+               'light intensity drizzle':'Cloudy',
+               'shower rain':'Rain',
+               'heavy intensity shower rain':'Rain',
+               'moderate rain':'Rain',
+               'heavy intensity drizzle':'Rain',
+               'haze':'Clear',
+               'smoke':'Clear',
+               'thunderstorm with light rain':'Rain',
+               'thunderstorm with rain':'Rain',
+               'heavy intensity rain':'Rain',
+               'thunderstorm with heavy rain':'Rain',
+               'dust':'Clear',
+               'thunderstorm':'Rain'
+              }
     # x =get_last_numb_days(database, numb_days)
     # print(x)
     # update_records(database, infile)
     print(get_max_log_datetime(database))
+    update_weath_codes(database, Weath_codes)
